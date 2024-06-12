@@ -1,0 +1,15 @@
+{
+  "name": "sba-express-server-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start":"nodemon index.js",
+    "dev":"npm run dev"
+  },
+  "author": "'yohannes'",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
