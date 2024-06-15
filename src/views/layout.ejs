@@ -1,0 +1,35 @@
+<!-- src/views/layout.ejs -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= typeof title !=='undefined' ? title : 'Food Express App' %>
+    </title>
+    <link rel="stylesheet" href="/css/sytle.css">
+</head>
+
+<body>
+    <header>
+        <h1>EAT AND ENJOY RESTAURANT!!</h1>
+        <nav>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/vege">Vegetables</a></li>
+                <li><a href="/nonvege">Non-vegetables</a></li>
+                <li><a href="/mixed">Mixed</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="menuPage">
+            <%= typeof content !=='undefined' ? content : '' %>
+        </section>
+
+    </main>
+    <footer>
+        <p>&copy; 2024 EAT AND ENJOY RESTAURANT!!</p>
+    </footer>
+</body>
+
+</html>

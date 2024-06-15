@@ -3,7 +3,7 @@ const vegeFoods = require("../../data/vege.js");
 
 //readAllVege ....get method
 exports.foodList = (req, res) => {
-  res.json(vegeFoods);
+  res.render("/vege/list", { vege: vegeFoods });
 };
 
 // //readById
