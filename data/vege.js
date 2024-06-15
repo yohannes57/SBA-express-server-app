@@ -26,6 +26,24 @@ let vegeFoods = [
     category: "vege",
     image: "/images/caprese_sandwich.jpg",
   },
+  {
+    _id: "4",
+    name: "Vegetable Stir Fry",
+    description:
+      "Assorted vegetables stir-fried with tofu in a savory soy sauce.",
+    price: 12.49,
+    category: "vege",
+    image: "/images/vegetable_stir_fry.jpg",
+  },
+  {
+    _id: "5",
+    name: "Caprese myRecipe",
+    description:
+      "Sliced tomatoes, fresh mozzarella, basil leaves, and pesto on ciabatta bread.",
+    price: 9.99,
+    category: "vege",
+    image: "/images/caprese_sandwich.jpg",
+  },
 ];
 
 module.exports = vegeFoods;

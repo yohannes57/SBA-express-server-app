@@ -1,16 +1,17 @@
 const express = require("express");
-const vegeFoods = require("../../data/vege.js");
+// const vegeFoods = require("../../data/vege.js");
 const {
-  foodList,
+  getAllVeges,
   foodById,
   createVegeFood,
   updateVegeFood,
   deleteVegeFood,
 } = require("../Controler/vegeControler.js");
-
+const vegeControler = require("../Controler/vegeControler.js");
 //-------routes at methods
 const router = express.Router();
-router.get("/list", foodList);
+//router
+router.get("/", vegeControler.getAllVeges);
 router.get("/:id", foodById);
 router.post("/", createVegeFood);
 router.patch("/:id", updateVegeFood);

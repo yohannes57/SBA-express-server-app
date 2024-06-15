@@ -37,7 +37,9 @@ nav ul li a:hover {
 }
 
 main {
-  padding: 20px;
+  /* padding: 20px; */
+  width: 100%;
+  margin: 0 auto;
 }
 section {
   text-align: center;
@@ -47,7 +49,110 @@ section {
   font-size: x-small;
   box-shadow: #827e7e;
 }
+/* ----for list------ */
+/* src/public/css/style.css */
 
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  /* padding: 20px; */
+}
+
+header,
+footer {
+  text-align: center;
+  padding: 10px 0;
+  background-color: whitesmoke;
+  color: #fff;
+}
+
+h1 {
+  color: #333;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 200px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.card-img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 5px;
+}
+
+.card-title {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.card-description {
+  color: #666;
+  font-size: 1em;
+  margin: 10px 0;
+}
+
+.card-price {
+  color: #000;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.card-actions {
+  padding: 10px;
+  border-top: 1px solid #eaeaea;
+  background-color: #f9f9f9;
+}
+
+.btn-edit,
+.btn-delete,
+.btn-add-new {
+  display: inline-block;
+  padding: 10px 10px;
+  margin: 5px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.btn-edit {
+  background-color: #7bce7d;
+}
+
+.btn-delete {
+  background-color: #e48e87;
+}
+
+.btn-add-new {
+  display: inline-block;
+  margin: 5px auto;
+  padding: 10px 20px;
+  background-color: #2196f3;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* --------- */
 footer {
   background-color: #827e7e;
   color: rgb(100, 94, 94);
