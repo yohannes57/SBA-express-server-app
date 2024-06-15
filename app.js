@@ -14,7 +14,6 @@ app.use(bodyParser.json());
 
 // Set up EJS
 app.set("view engine", "ejs");
-app.set("views", "src/views/vege");
 app.set("views", "src/views");
 
 // Middleware to serve static files

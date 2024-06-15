@@ -1,4 +1,4 @@
-let = [
+let nonVegeFoods = [
   {
     _id: "4",
     name: "Grilled Chicken Sandwich",

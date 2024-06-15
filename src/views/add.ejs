@@ -1,0 +1,19 @@
+<%- include('layout', { title: 'Add New Menu Item' , content: '' }) %>
+    <h1>Add New <%= category.charAt(0).toUpperCase() + category.slice(1) %> Item</h1>
+    <form action="/<%= category %>/add/<%= category %>" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+
+        <label for="price">Price:</label>
+        <input type="number" step="0.01" id="price" name="price" required>
+
+        <label for="image">Image URL:</label>
+        <input type="text" id="image" name="image" required>
+
+        <button type="submit">Add Item</button>
+    </form>
+    <a href="/<%= category %>" class="btn-back">Back to <%= category.charAt(0).toUpperCase() + category.slice(1) %>
+            List</a>

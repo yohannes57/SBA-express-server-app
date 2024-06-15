@@ -1,0 +1,10 @@
+<!-- src/views/detail.ejs -->
+<%- include('layout', { title: 'Vegetable detail' , content:' '}) %>
+    <h2><%= vege.name %></h2>
+        <img src="<%= vege.image %>" alt="<%= vege.name %>" width="300">
+        <p>
+            <%= vege.description %>
+        </p>
+        <p>Price: $<%= vege.price %>
+        </p>
+        <a href="/vege" class="btn-back">Back to Vegetable List</a>

@@ -1,19 +1,17 @@
 const express = require("express");
-// const vegeFoods = require("../../data/vege.js");
+const router = express.Router();
 const {
-  getAllVeges,
-  foodById,
-  createVegeFood,
   updateVegeFood,
   deleteVegeFood,
 } = require("../Controler/vegeControler.js");
+
 const vegeControler = require("../Controler/vegeControler.js");
 //-------routes at methods
-const router = express.Router();
 //router
 router.get("/", vegeControler.getAllVeges);
-router.get("/:id", foodById);
-router.post("/", createVegeFood);
+router.get("/:id", vegeControler.foodById);
+router.get("/add/:category", vegeControler.showForm);
+router.post("/add/:category", vegeControler.addMenuItem);
 router.patch("/:id", updateVegeFood);
 router.delete("/:id", deleteVegeFood);
 //---------------------

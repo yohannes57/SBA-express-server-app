@@ -1,42 +1,54 @@
 const express = require("express");
 const vegeFoods = require("../../data/vege.js");
-
+const nonVegeFoods = require("../../data/non-vege.js");
+const mixedFoods = require("../../data/mixed.js");
 //readAllVege ....get method
 exports.getAllVeges = (req, res) => {
   // res.render("vege/list", { vege: vegeFoods });
   res.render("list", {
-    title: "vegetable nooo",
+    title: "vegetable list",
     vege: vegeFoods,
   });
 };
-// app.get("/users/new", (req, res) => {
-// res.send(`
-//     <div>
-//       <h1>Create a User</h1>
-//       <form action="/api/users?api-key=perscholas"  method="POST">
-//         Name: <input type="text" name="name" /> <br />
-//         Username: <input type="text" name="username" /> <br />
-//         Email: <input type="text" name="email" /> <br />
-//         <input type="submit" value="Create User" />
-//       </form>
-//     </div>
-//   `);
-// });
-
 // //readById
 exports.foodById = (req, res) => {
   const foodId = req.params.id;
   const food = vegeFoods.find((v) => v._id == foodId);
-  res.json(food);
+  res.render("detail", {
+    title: "vegetable detail",
+    vege: food,
+  });
 };
-
+//display form
+exports.showForm = (req, res) => {
+  let category = req.params.category;
+  res.render("add", { category: category });
+};
+//
 // //create vege ----post method
-exports.createVegeFood = (req, res) => {
+exports.addMenuItem = (req, res) => {
+  let category = req.params.category;
   let vegeId = vegeFoods.length + 1;
-  let { name, description, price, category, image } = req.body;
-  let newVege = { _id: vegeId, name, description, price, category, image };
-  vegeFoods.push(newVege);
-  res.json(newVege);
+  const newMenu = {
+    _id: vegeId, // A unique ID for the new item
+    name: req.body.name,
+    description: req.body.description,
+    price: parseFloat(req.body.price),
+    category: category,
+    image: req.body.image,
+  };
+  if (category === "vege") {
+    vegeFoods.push(newMenu);
+    res.redirect("/vege");
+  } else if (category === "nonvege") {
+    nonVegeFoods.push(newMenu);
+    res.redirect("/nonvege");
+  } else if (category === "mixed") {
+    mixedFoods.push(newMenu);
+    res.redirect("/mixed");
+  } else {
+    res.status(400).send("invalid category");
+  }
 };
 // //update vegeById------patch method
 exports.updateVegeFood = (req, res, next) => {
