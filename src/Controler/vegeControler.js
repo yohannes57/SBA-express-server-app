@@ -51,26 +51,37 @@ exports.addMenuItem = (req, res) => {
   }
 };
 // //update vegeById------patch method
+exports.showEditForm = (req, res) => {
+  const vegeId = req.params.id;
+  const vegeItem = vegeFoods.find((item) => item._id === vegeId);
+  if (vegeItem) {
+    res.render("edit", { vege: vegeItem });
+  } else {
+    res.status(404).send("Vegetable not found");
+  }
+};
 exports.updateVegeFood = (req, res, next) => {
   let vegeId = req.params.id;
 
-  let { name, description, price, category, image } = req.body;
+  let { name, description, price, image } = req.body;
 
   let indexOfVege = vegeFoods.findIndex((vege) => vege._id == vegeId);
-
-  let food = {
-    ...vegeFoods[indexOfVege],
-    vegeId,
-    name,
-    description,
-    price,
-    category,
-    image,
-  };
-  vegeFoods[indexOfVege] = food;
-  res.json(food);
+  if (indexOfVege !== -1) {
+    vegeFoods[indexOfVege] = {
+      ...vegeFoods[indexOfVege],
+      vegeId,
+      name,
+      description,
+      price,
+      image,
+    };
+    //
+    res.render("list", { vege: vegeFoods[indexOfVege] });
+  } else {
+    // Handle error if vegetable with vegeId is not found
+    res.status(404).send("Vegetable not found");
+  }
 };
-
 // //delete vegeById-----detelet method
 exports.deleteVegeFood = (req, res) => {
   let comId = req.params.id;
@@ -78,9 +89,8 @@ exports.deleteVegeFood = (req, res) => {
 
   if (index !== -1) {
     //destructuring
-    const [deleteVege] = vegeFoods.splice(index, 1);
-
-    res.json(deleteVege);
+    vegeFoods.splice(index, 1);
+    res.status(200).send("food deleted successfully");
   } else {
     res.statusCode(404).json({ error: "not found" });
   }

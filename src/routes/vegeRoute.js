@@ -12,7 +12,8 @@ router.get("/", vegeControler.getAllVeges);
 router.get("/:id", vegeControler.foodById);
 router.get("/add/:category", vegeControler.showForm);
 router.post("/add/:category", vegeControler.addMenuItem);
-router.patch("/:id", updateVegeFood);
+router.get("/:id/edit", vegeControler.showEditForm); //right
+router.patch("/:id", vegeControler.updateVegeFood);
 router.delete("/:id", deleteVegeFood);
 //---------------------
 module.exports = router;

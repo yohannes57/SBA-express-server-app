@@ -57,6 +57,7 @@ body {
   background-color: #f4f4f4;
   margin: 0;
   /* padding: 20px; */
+  overflow: auto;
 }
 
 header,
@@ -211,4 +212,5 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+  border-top: 2px;
 }

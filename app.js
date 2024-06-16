@@ -4,6 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const vegeRoute = require("./src/routes/vegeRoute.js");
 const path = require("path");
+const methodOverride = require("method-override"); //used to delete
 //----------------------------------------------
 // const exphbs=require('express-layoutHandler')
 
@@ -11,7 +12,7 @@ const app = express();
 // Middleware for parsing requests
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
+app.use(methodOverride("_method"));
 // Set up EJS
 app.set("view engine", "ejs");
 app.set("views", "src/views");
