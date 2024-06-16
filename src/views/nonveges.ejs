@@ -1,9 +1,9 @@
 <!-- src/views/list.ejs -->
 <%- include('layout', { title: 'Vegetable List' , content:' '}) %>
     <div class="card-container">
-        <% vege.forEach(function(veg) { %>
+        <% nonvege.forEach(function(veg) { %>
             <div class="card">
-                <a href="/vege/<%= veg._id %>">
+                <a href="/nonvege/<%= veg._id %>">
                     <img src="<%= veg.image %>" alt="<%= veg.name %>" class="card-img">
                     <div class="card-content">
                         <h2 class="card-title">
@@ -14,8 +14,8 @@
                     </div>
                 </a>
                 <div class="card-actions">
-                    <a href="/vege/<%= veg._id %>/edit" class="btn-edit">Edit</a>
-                    <form action="/vege/<%= veg._id %>?_method=DELETE" method="POST" class="inline-form">
+                    <a href="/nonvege/<%= veg._id %>/edit" class="btn-edit">Edit</a>
+                    <form action="/nonvege/<%= veg._id %>?_method=DELETE" method="POST" class="inline-form">
                         <button type="submit" class="btn-delete">Delete</button>
                     </form>
                 </div>

@@ -3,6 +3,7 @@ console.log("SBA-Express-Aerver-Application!!!");
 const express = require("express");
 const bodyParser = require("body-parser");
 const vegeRoute = require("./src/routes/vegeRoute.js");
+const nonvegeRoute = require("./src/routes/nonvegeRoute.js");
 const path = require("path");
 const methodOverride = require("method-override"); //used to delete
 //----------------------------------------------
@@ -22,6 +23,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //route api
 app.use("/vege", vegeRoute);
+app.use("/nonvege", nonvegeRoute);
 
 // default layout or page for all
 app.get("/home", (req, res) => {

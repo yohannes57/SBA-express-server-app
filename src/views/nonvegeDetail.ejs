@@ -1,0 +1,10 @@
+<!-- src/views/detail.ejs -->
+<%- include('layout', { title: 'none-Vegetable detail' , content:' '}) %>
+    <h2><%= nonvege.name %></h2>
+        <img src="<%= nonvege.image %>" alt="<%= nonvege.name %>" width="300">
+        <p>
+            <%= nonvege.description %>
+        </p>
+        <p>Price: $<%= nonvege.price %>
+        </p>
+        <a href="/nonvege" class="btn-back">Back to Vegetable List</a>
