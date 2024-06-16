@@ -62,26 +62,35 @@ exports.showEditForm = (req, res) => {
 };
 exports.updateVegeFood = (req, res, next) => {
   let vegeId = req.params.id;
-
   let { name, description, price, image } = req.body;
 
   let indexOfVege = vegeFoods.findIndex((vege) => vege._id == vegeId);
   if (indexOfVege !== -1) {
     vegeFoods[indexOfVege] = {
       ...vegeFoods[indexOfVege],
-      vegeId,
       name,
       description,
       price,
       image,
     };
-    //
-    res.render("list", { vege: vegeFoods[indexOfVege] });
+    //let
+    let updateVage = {
+      ...vegeFoods[indexOfVege],
+      links: {
+        self: `/vege/${indexOfVege}`,
+        list: `/vege`,
+        edit: `/vege/${vegeId}/edit`,
+        delete: `/vege/${vegeId}?_method=DELETE`,
+      },
+    };
+    // res.redirect("/vege").json(updateVage);
+    res.json(updateVage);
   } else {
     // Handle error if vegetable with vegeId is not found
     res.status(404).send("Vegetable not found");
   }
 };
+
 // //delete vegeById-----detelet method
 exports.deleteVegeFood = (req, res) => {
   let comId = req.params.id;

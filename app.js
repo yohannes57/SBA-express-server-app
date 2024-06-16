@@ -27,9 +27,14 @@ app.use("/vege", vegeRoute);
 app.get("/home", (req, res) => {
   res.render("index");
 });
+//
 // home route for handling "/"
 app.get("/", (req, res) => {
   res.render("index");
 });
-
+//error medleware
+app.use((req, res) => {
+  res.status(404);
+  res.json({ error: "oops ...Some thing went wrong" });
+});
 module.exports = app;
