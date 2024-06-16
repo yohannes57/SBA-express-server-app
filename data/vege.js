@@ -36,7 +36,8 @@ let vegeFoods = [
       "Assorted vegetables stir-fried with tofu in a savory soy sauce.",
     price: 12.49,
     category: "vege",
-    image: "/images/vegetable_stir_fry.jpg",
+    image:
+      "https://insanelygoodrecipes.com/wp-content/uploads/2021/06/Vegetable-Bowl-with-Boiled-Eggs.jpg",
   },
   {
     _id: "5",
@@ -46,7 +47,7 @@ let vegeFoods = [
     price: 9.99,
     category: "vege",
     image:
-      "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/rainbow-colored-fruit-and-vegetable-lunch-bowl-royalty-free-image-1572980712.jpg?resize=980:",
+      "https://th.bing.com/th/id/OIP.Y4eI-oin87_m4uMCQFdJUAHaE8?rs=1&pid=ImgDetMain",
   },
 ];
 
