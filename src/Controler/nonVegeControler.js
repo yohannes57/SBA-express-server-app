@@ -22,7 +22,7 @@ exports.showForm = (req, res) => {
   res.render("add", { category: category });
 };
 //---------------------------------------
-// //create vege ----post method
+// //create nonvege ----post method
 exports.addMenuItem = (req, res) => {
   let category = req.params.category;
   let vegeId = nonVegeFoods.length + 1;
@@ -42,6 +42,15 @@ exports.addMenuItem = (req, res) => {
   }
 };
 //-----------------------------------
+exports.showEditForm = (req, res) => {
+  const vegeId = req.params.id;
+  const nonvegeItem = nonVegeFoods.find((item) => item._id === vegeId);
+  if (nonvegeItem) {
+    res.render("nonvegeEdit", { nonvege: nonvegeItem });
+  } else {
+    res.status(404).send("Vegetable not found");
+  }
+};
 exports.updateVegeFood = (req, res, next) => {
   let vegeId = req.params.id;
   let { name, description, price, image } = req.body;

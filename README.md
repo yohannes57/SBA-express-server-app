@@ -24,6 +24,12 @@ The application illustrates:
 To run the project locally, follow these steps:
 
 1. **Clone the repository:**
+
    ```bash
    git clone <repository-url>
+   install necessary pakages:
+   express
+   ejs the template
+   method-override fordeleteandupdatemethod
+   ....
    ```

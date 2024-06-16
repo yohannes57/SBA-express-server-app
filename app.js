@@ -4,11 +4,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const vegeRoute = require("./src/routes/vegeRoute.js");
 const nonvegeRoute = require("./src/routes/nonvegeRoute.js");
+const mixedRoute = require("./src/routes/mixedRoute.js");
 const path = require("path");
 const methodOverride = require("method-override"); //used to delete
 //----------------------------------------------
-// const exphbs=require('express-layoutHandler')
-
 const app = express();
 // Middleware for parsing requests
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -24,6 +23,7 @@ app.use(express.static(path.join(__dirname, "public")));
 //route api
 app.use("/vege", vegeRoute);
 app.use("/nonvege", nonvegeRoute);
+app.use("/mixed", mixedRoute);
 
 // default layout or page for all
 app.get("/home", (req, res) => {

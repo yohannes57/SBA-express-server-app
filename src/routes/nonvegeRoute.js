@@ -8,7 +8,7 @@ router.get("/:id", nonVegeControler.getNonvegeById);
 router.get("/add/:category", nonVegeControler.showForm);
 router.post("/add/:category", nonVegeControler.addMenuItem);
 //
-router.get("/:id/edit", nonVegeControler.addMenuItem); //right
+router.get("/:id/edit", nonVegeControler.showEditForm); //right
 router.patch("/:id/edit", nonVegeControler.updateVegeFood);
 router.delete("/:id", nonVegeControler.deleteNonvege);
 

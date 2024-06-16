@@ -1,26 +1,19 @@
-<!-- src/views/list.ejs -->
-<%- include('layout', { title: 'none-Vegetable List' , content:' '}) %>
-    <div class="card-container">
-        <% nonvege.forEach(function(veg) { %>
-            <div class="card">
-                <a href="/nonvege/<%= veg._id %>">
-                    <img src="<%= veg.image %>" alt="<%= veg.name %>" class="card-img">
-                    <div class="card-content">
-                        <h2 class="card-title">
-                            <%= veg.name %>
-                        </h2>
-                        <p class="card-price">$<%= veg.price %>
-                        </p>
-                    </div>
-                </a>
-                <div class="card-actions">
-                    <a href="/nonvege/<%= veg._id %>/edit" class="btn-edit">Edit</a>
-                    <form action="/nonvege/<%= veg._id %>?_method=DELETE" method="POST" class="inline-form">
-                        <button type="submit" class="btn-delete">Delete</button>
-                    </form>
-                </div>
-            </div>
-            <% }); %>
-    </div>
-    <!-- <a href="/vege/add" class="btn-add-new">Add New Vegetable</a> -->
-    
+<%- include('layout', { title: 'Edit Menu Item' , content: '' }) %>
+
+    <form action="/nonvege/<%= nonvege._id %>/edit?_method=PATCH" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="<%= nonvege.name %>" required>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required><%= nonvege.description %></textarea>
+
+        <label for="price">Price:</label>
+        <input type="number" step="0.01" id="price" name="price" value="<%= nonvege.price %>" required>
+
+        <label for="image">Image URL:</label>
+        <input type="text" id="image" name="image" value="<%= nonvege.image %>" required>
+
+        <button type="submit">Update</button>
+    </form>
+
+    <a href="/nonvege" class="btn-back">Back to Main List</a>

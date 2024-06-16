@@ -1,0 +1,19 @@
+<%- include('layout', { title: 'Edit Menu Item' , content: '' }) %>
+
+    <form action="/mixed/<%= mixed._id %>/edit?_method=PATCH" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="<%= mixed.name %>" required>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required><%= mixed.description %></textarea>
+
+        <label for="price">Price:</label>
+        <input type="number" step="0.01" id="price" name="price" value="<%= mixed.price %>" required>
+
+        <label for="image">Image URL:</label>
+        <input type="text" id="image" name="image" value="<%= mixed.image %>" required>
+
+        <button type="submit">Update</button>
+    </form>
+
+    <a href="/mixed" class="btn-back">Back to Main List</a>
